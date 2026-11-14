@@ -2779,6 +2779,24 @@ video {
 .contact-main h2 span {
   color: transparent;
   -webkit-text-stroke: 1px rgba(240, 240, 233, 0.65);
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-outline-filter-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+@supports (filter: url("#contact-title-outline")) {
+  .contact-main h2 span {
+    color: var(--paper);
+    -webkit-text-stroke: 0;
+    -webkit-text-fill-color: var(--paper);
+    filter: url("#contact-title-outline");
+  }
 }
 
 .contact-email-row {

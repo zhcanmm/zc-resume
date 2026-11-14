@@ -1461,6 +1461,55 @@ function Contact() {
 
   return (
     <section className="contact" id="contact" aria-labelledby="contact-title">
+      <svg
+        className="contact-outline-filter-defs"
+        width="0"
+        height="0"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <defs>
+          <filter
+            id="contact-title-outline"
+            x="-3%"
+            y="-6%"
+            width="106%"
+            height="112%"
+            colorInterpolationFilters="sRGB"
+          >
+            <feOffset in="SourceAlpha" dx="0.65" dy="0" result="right" />
+            <feOffset in="SourceAlpha" dx="-0.65" dy="0" result="left" />
+            <feOffset in="SourceAlpha" dx="0" dy="0.65" result="bottom" />
+            <feOffset in="SourceAlpha" dx="0" dy="-0.65" result="top" />
+            <feOffset in="SourceAlpha" dx="0.46" dy="0.46" result="bottom-right" />
+            <feOffset in="SourceAlpha" dx="-0.46" dy="0.46" result="bottom-left" />
+            <feOffset in="SourceAlpha" dx="0.46" dy="-0.46" result="top-right" />
+            <feOffset in="SourceAlpha" dx="-0.46" dy="-0.46" result="top-left" />
+            <feMerge result="directional-rim">
+              <feMergeNode in="right" />
+              <feMergeNode in="left" />
+              <feMergeNode in="bottom" />
+              <feMergeNode in="top" />
+              <feMergeNode in="bottom-right" />
+              <feMergeNode in="bottom-left" />
+              <feMergeNode in="top-right" />
+              <feMergeNode in="top-left" />
+            </feMerge>
+            <feComposite
+              in="directional-rim"
+              in2="SourceAlpha"
+              operator="out"
+              result="hollow-rim"
+            />
+            <feFlood
+              floodColor="#f0f0e9"
+              floodOpacity="0.65"
+              result="rim-color"
+            />
+            <feComposite in="rim-color" in2="hollow-rim" operator="in" />
+          </filter>
+        </defs>
+      </svg>
       <div className="contact-grid" aria-hidden="true" />
       <div className="contact-glow" aria-hidden="true" />
       <div className="noise" aria-hidden="true" />
